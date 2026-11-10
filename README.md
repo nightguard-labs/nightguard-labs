@@ -33,4 +33,4 @@ links so traffic never blocks, and escalation when a layer can't handle somethin
 Swift · Metal · MLX / mlx-swift · Python · Ollama · macOS (launchd, LaunchAgents) · watchOS / iOS · networking fundamentals
 
 ## 📓 Build log
-I share the process, including the failures, with real measured numbers: **[nightguard-labs.github.io](https://nightguard-labs.github.io)**
+I share the process, including the failures, with real measured numbers: **[nightguard-labs.github.io](https://nightguard-labs.github.io)**. How the design came together: **[How I figure things out](https://nightguard-labs.github.io/how.html)**
