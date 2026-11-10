@@ -9,7 +9,7 @@ links so traffic never blocks, and escalation when a layer can't handle somethin
 
 ## 🔨 Building now
 
-**[Code Smash TeTi](https://github.com/nightguard-labs/code-smash-teti)**: a layered local coding brain *(code going public soon)*
+**[Code Smash TeTi](https://github.com/nightguard-labs/code-smash-teti)**: a step-up layered coding brain that stays usable on 32 GB *(code going public soon)*
 - Runs **Qwen3.5-122B** (64 GB at 4-bit) on a **32 GB** M1 Pro by streaming mixture-of-experts weights from the SSD,
   in a native Swift + Metal engine built on MLX
 - A 4-layer brain stack: 9B → 35B → 80B → 122B. Each layer only gets a task the one below couldn't pass.
