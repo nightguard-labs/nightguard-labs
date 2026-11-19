@@ -9,17 +9,26 @@ links so traffic never blocks, and escalation when a layer can't handle somethin
 
 ## 🔨 Building now
 
-**[Code Smash TeTi](https://github.com/nightguard-labs/code-smash-teti)**: a step-up layered coding brain that stays usable on 32 GB *(code going public soon)*
+**[Code Smash TeTi](https://github.com/nightguard-labs/code-smash-teti)**: a step-up layered coding brain that stays usable on 32 GB *(code is public)*
+- Small fast models do most of the work; only tasks they can't pass climb to bigger ones:
+  9B → 35B → **Titan 27B + checker** (8/8 on the hidden-test exam, 0 false wins) → 122B overnight backup
 - Runs **Qwen3.5-122B** (64 GB at 4-bit) on a **32 GB** M1 Pro by streaming mixture-of-experts weights from the SSD,
   in a native Swift + Metal engine built on MLX
-- A 4-layer brain stack: 9B → 35B → 80B → 122B. Each layer only gets a task the one below couldn't pass.
-- Self-checking build loop, graded by hidden tests so false wins can't sneak through
-- Nightly "sleep": profiles real usage, shrinks rarely used experts to 2-bit (+0.66% loss), and learns from its own work
+- Graded by hidden tests it never sees, with **false wins** (said "done," wasn't) counted separately
+- Latest: [mixing model families, and a frontier model's security slip](https://github.com/nightguard-labs/code-smash-teti/blob/main/TITAN-AND-FRONTIER.md)
+
+**[Battle AI](https://github.com/nightguard-labs/battle-ai)**: local models hack each other inside a no-network Docker box, and code keeps score
+- An attack-defense CTF for LLMs: each turn one bash command, defend your own "mind" files or rewrite the opponent's
+- 5 fighters, 12-match season; the cage passes 17/17 escape tests
+
+**Next: an AI security-trap exam.** Coding tasks built around real CWEs (eval injection, path traversal, SQL injection,
+hardcoded secrets…) to log where AI models write insecure code, then test whether a checker from a different model family catches it.
 
 ## 🧰 Things I've built
 
 | Project | What it does |
 |---|---|
+| **[Battle AI](https://github.com/nightguard-labs/battle-ai)** | Model-vs-model hacking arena in a locked Docker box (no network, no host folders, 17/17 escape tests). |
 | **Local multi-model AI assistant** | Several local models behind one interface, each with its own role (chat, code, reasoning). Browser GUI plus native Mac app, local neural voice, a chat-only mode, and escalation to a stronger model when it gets stuck. |
 | **Prompt-injection canary** | A small always-on model that screens every web page and tool result before the main model sees it. Locked model copy, guardian process, never removable by the AI itself. |
 | **Self-learning skills** | After tool tasks, the assistant saves reusable skills, but only ones it has actually tested. A reviewer pass checks them twice a day. |
@@ -30,7 +39,7 @@ links so traffic never blocks, and escalation when a layer can't handle somethin
 | **Home automation** | Local models wired into a smart-home setup, with no cloud services. |
 
 ## 🛠️ Tools I work with
-Swift · Metal · MLX / mlx-swift · Python · Ollama · macOS (launchd, LaunchAgents) · watchOS / iOS · networking fundamentals
+Swift · Metal · MLX / mlx-swift · Python · Docker · Ollama · macOS (launchd, LaunchAgents) · watchOS / iOS · networking fundamentals
 
 ## 📓 Build log
 I share the process, including the failures, with real measured numbers: **[nightguard-labs.github.io](https://nightguard-labs.github.io)**. How the design came together: **[How I figure things out](https://nightguard-labs.github.io/how.html)**. How I learned, mess-ups included: **[How I learned](https://nightguard-labs.github.io/learning.html)**
